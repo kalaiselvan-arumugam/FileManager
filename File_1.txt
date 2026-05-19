@@ -1,0 +1,5 @@
+This is File_1.txt for upload testing.
+Created for S3/MinIO file management demonstration.
+Line 3 of the file content.
+Line 4 of the file content.
+End of File_1.txt content.
