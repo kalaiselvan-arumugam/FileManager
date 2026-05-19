@@ -62,7 +62,7 @@ public class ConfigurationLoader
             if (string.IsNullOrWhiteSpace(trimmedLine))
                 continue;
 
-            if (trimmedLine.StartsWith('#') || trimmedLine.StartsWith('!'))
+            if (trimmedLine.StartsWith("#") || trimmedLine.StartsWith("!"))
                 continue;
 
             var equalsIndex = trimmedLine.IndexOf('=');

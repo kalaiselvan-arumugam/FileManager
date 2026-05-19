@@ -2,9 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <TargetFrameworks>net48;net6.0;net7.0;net8.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
     <RootNamespace>S3FileManager</RootNamespace>
     <AssemblyName>S3FileManager</AssemblyName>
     <Version>1.0.0</Version>
@@ -13,6 +12,12 @@
 
     <!-- Framework-dependent deployment support -->
     <PublishReadyToRun>true</PublishReadyToRun>
+  </PropertyGroup>
+
+  <!-- .NET Framework 4.8 specific settings -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
+    <UseWindowsForms>false</UseWindowsForms>
+    <DefineConstants>NET48</DefineConstants>
   </PropertyGroup>
 
   <!-- Publish profile for single file self-contained -->
@@ -29,6 +34,11 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <!-- .NET Framework 4.8 specific references -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
 
 </Project>
