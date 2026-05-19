@@ -6,7 +6,7 @@ A production-grade enterprise C# .NET console application for managing folders a
 
 - **S3-Compatible Storage Support**: Works with AWS S3, MinIO, Ceph RGW, LocalStack
 - **Menu-Driven CLI**: Interactive console interface for file operations
-- **Framework Support**: .NET 6, .NET 7, .NET 8
+- **Framework Support**: .NET Framework 4.8, .NET 6, .NET 7, .NET 8, .NET 9
 - **Deployment Options**: Framework-dependent and self-contained single-file executable
 - **SSL/TLS Support**: HTTPS, TLS 1.2, TLS 1.3, mutual TLS (mTLS)
 - **Enterprise Logging**: Timestamp-based logging with Microsoft.Extensions.Logging
@@ -16,15 +16,17 @@ A production-grade enterprise C# .NET console application for managing folders a
 ```
 S3FileManager/
 ├── S3FileManager.csproj      # Project file with multi-target framework support
+├── GlobalUsings.cs           # Cross-framework global using statements
 ├── Program.cs                 # Application entry point
 ├── AppConfiguration.cs        # Configuration model
 ├── ConfigurationLoader.cs    # .properties file parser
 ├── S3ClientFactory.cs        # S3 client factory with SSL/mTLS support
-├── S3StorageService.cs       # S3 operations (upload, copy, delete, list)
+├── S3StorageService.cs       # S3 operations (upload, copy, delete, list, download)
 ├── MenuService.cs            # Menu-driven operations
 ├── ConsoleHelper.cs          # Console I/O helper
 ├── Constants.cs              # Application constants
 ├── PathHelper.cs             # Path resolution utilities
+├── FileLoggerProvider.cs     # File logging provider
 ├── config.properties         # Example configuration file
 ├── File_1.txt                # Sample file for upload
 ├── File_2.txt                # Sample file for upload
@@ -33,7 +35,8 @@ S3FileManager/
 
 ## Prerequisites
 
-- .NET 6.0 SDK or later
+- .NET 6.0 SDK or later (for .NET 6/7/8/9)
+- .NET Framework 4.8 (for Windows .NET Framework)
 - Access to an S3-compatible endpoint (MinIO, AWS S3, LocalStack, Ceph RGW)
 
 ## Configuration
